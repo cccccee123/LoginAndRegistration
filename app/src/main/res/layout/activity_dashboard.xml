@@ -22,4 +22,13 @@
         android:text="@string/logout"
         android:textColor="@android:color/white" />
 
+    <Button
+        android:id="@+id/btnlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#aaa"
+       android:text="List"
+        android:textColor="@android:color/white" />
+
 </LinearLayout>

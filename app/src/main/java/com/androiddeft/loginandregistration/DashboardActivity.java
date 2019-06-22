@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class DashboardActivity extends AppCompatActivity {
     private SessionHandler session;
-
+    private Button btnlist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +21,7 @@ public class DashboardActivity extends AppCompatActivity {
         welcomeText.setText("Welcome "+user.getFullName()+", your session will expire on "+user.getSessionExpiryDate());
 
         Button logoutBtn = findViewById(R.id.btnLogout);
+        Button btnlist=findViewById(R.id.btnlist);
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +31,14 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(i);
                 finish();
 
+            }
+        });
+        btnlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DashboardActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
             }
         });
     }
