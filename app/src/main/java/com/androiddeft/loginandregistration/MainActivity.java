@@ -1,7 +1,10 @@
 package com.androiddeft.loginandregistration;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.androiddeft.loginandregistration.adapter.CarArrayAdapter;
@@ -16,7 +19,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+ private Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
         String jsonStr_imgs = readAssetsFile("cars.json");
         System.out.print(jsonStr_imgs);
 
+  back=findViewById(R.id.back);
+  back.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+          Intent i = new Intent(MainActivity.this, DashboardActivity.class);
+          startActivity(i);
+          finish();
+      }
+  });
 
         ArrayList<Car> carArrayList =jsonToArrayList_car(jsonStr_imgs);
 

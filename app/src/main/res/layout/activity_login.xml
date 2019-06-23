@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#304769"
+    android:background="@drawable/background"
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="50dp"
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_lock_outline_white" />
+        android:src="@drawable/intro" />
 
     <EditText
         android:id="@+id/etLoginUsername"
@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="#f05924"
+        android:background="#EB4510"
         android:text="@string/sign_in"
         android:textColor="@android:color/white" />
     <TextView
@@ -51,14 +51,14 @@
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:text="@string/not_having_account"
-        android:textColor="#ccc" />
+        android:textColor="@color/colorPrimary" />
 
     <Button
         android:id="@+id/btnLoginRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="#aaa"
+        android:background="#04AFFC"
         android:text="@string/register"
         android:textColor="@android:color/white" />
 
