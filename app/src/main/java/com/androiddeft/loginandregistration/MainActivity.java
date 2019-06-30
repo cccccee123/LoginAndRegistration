@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -27,32 +28,43 @@ public class MainActivity extends AppCompatActivity {
         String jsonStr_imgs = readAssetsFile("cars.json");
         System.out.print(jsonStr_imgs);
 
-  back=findViewById(R.id.back);
-  back.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-          Intent i = new Intent(MainActivity.this, DashboardActivity.class);
-          startActivity(i);
-          finish();
-      }
-  });
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, DashboardActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
-        ArrayList<Car> carArrayList =jsonToArrayList_car(jsonStr_imgs);
+        ArrayList<Car> carArrayList = jsonToArrayList_car(jsonStr_imgs);
 
-        for (int i = 0; i< carArrayList.size(); i++) {
-            System.out.println(i+ ">" + carArrayList.get(i));
+        for (int i = 0; i < carArrayList.size(); i++) {
+            System.out.println(i + ">" + carArrayList.get(i));
         }
 
-        CarArrayAdapter carArrayAdapter=
+        CarArrayAdapter carArrayAdapter =
                 new CarArrayAdapter(
                         this,
                         R.layout.row,
                         carArrayList
                 );
 
-        ListView listView=findViewById(R.id.listView);
+        ListView listView = findViewById(R.id.listView);
         listView.setAdapter(carArrayAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent newActivity = new Intent(MainActivity.this, Cardetail.class);
+                // Adding your variable to intent
+                newActivity.putExtra("position", position);
+                startActivity(newActivity);
+
+
+            }
+        });
     }
 
     private String readAssetsFile(String fileName) {
@@ -77,15 +89,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private ArrayList<Car> jsonToArrayList_car(String jsonStr_countrys) {
+    private ArrayList<Car> jsonToArrayList_car(String jsonStr_cars) {
 
-        ArrayList<Car> countriesArrayList = new ArrayList<Car>();
+        ArrayList<Car> carsArrayList = new ArrayList<Car>();
 
 
         try {
-            JSONObject root= new JSONObject(jsonStr_countrys);
+            JSONObject root= new JSONObject(jsonStr_cars);
 
-            JSONArray jsonArray= root.getJSONArray("countries");
+            JSONArray jsonArray= root.getJSONArray("cars");
 
             for(int i=0; i<jsonArray.length();i++) {
                 JSONObject jsonObject=jsonArray.getJSONObject(i);
@@ -104,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Car car =new Car(name,flagUrl, rating,style);
 
-                countriesArrayList.add(car);
+                carsArrayList.add(car);
             }
 
         } catch (JSONException e) {
@@ -112,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        return countriesArrayList;
+        return carsArrayList;
 
     }
 

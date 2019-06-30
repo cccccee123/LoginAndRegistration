@@ -15,7 +15,7 @@
         android:layout_above="@+id/welcomeText"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="-47dp"
@@ -23,6 +23,16 @@
         android:text="List"
         android:textColor="@android:color/white" />
 
+    <Button
+        android:id="@+id/feedback"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnlist"
+        android:layout_marginTop="219dp"
+        android:layout_marginBottom="5dp"
+        android:background="#EB4510"
+        android:text="Feedback"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btnLogout"
@@ -34,6 +44,8 @@
         android:background="#aaa"
         android:text="@string/logout"
         android:textColor="@android:color/white" />
+
+
 
     <TextView
         android:id="@+id/welcomeText"

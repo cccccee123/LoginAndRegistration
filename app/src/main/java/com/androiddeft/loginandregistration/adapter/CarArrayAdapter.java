@@ -56,6 +56,13 @@ public class CarArrayAdapter  extends ArrayAdapter<Car> {
             carHolder.style_TextView=row.findViewById(R.id.style_TextView);
             carHolder.rating_TextView=row.findViewById(R.id.rating_TextView);
 
+            carHolder.flag_ImageView=row.findViewById(R.id.flag_imageView);
+            carHolder.name_TextView=row.findViewById(R.id.name_TextView);
+            carHolder.style_TextView=row.findViewById(R.id.style_TextView);
+            carHolder.rating_TextView=row.findViewById(R.id.rating_TextView);
+
+
+
             row.setTag(carHolder);
         }else  {
             carHolder=(CarHolder) row.getTag();
@@ -82,6 +89,13 @@ public class CarArrayAdapter  extends ArrayAdapter<Car> {
         TextView name_TextView;
         TextView rating_TextView;
         TextView style_TextView;
+
+
+
+
+
+
+
     }
 
 

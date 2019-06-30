@@ -12,4 +12,10 @@
     <string name="sign_up">Sign Up</string>
     <string name="logout">Logout</string>
     <string name="list" />
+    <string name="flag_imageView"></string>
+    <string name="name_TextView"></string>
+    <string name="style_TextView"></string>
+    <string name="rating_TextView"></string>
+
+
 </resources>
